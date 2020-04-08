@@ -33,6 +33,21 @@ struct slist_s {
 };
 
 
+/*@ 
+
+pred slist_content(+head, +tail, content) {
+    (content == nil) * (head == tail);
+    (content == [#a]) * (head == tail) * (head -> struct snode_s { #a; NULL });
+    (content == #a::(#b::#r)) * (head -> struct snode_s { #a; #next }) *
+    slist_content(#next, tail, (#b::#r))
+}
+
+pred slist(+x, head, tail, size, content) {
+    x -m> struct slist_s { long(size); head; tail; funptr(malloc); funptr(calloc); funptr(free) } *
+    slist_content(head, tail, content) * (size == len content)
+}
+*/
+
 static void* unlinkn              (SList *list, SNode *node, SNode *prev);
 static bool  unlinkn_all          (SList *list, void (*cb) (void*));
 static void  splice_between      (SList *list1, SList *list2, SNode *base, SNode *end);
@@ -46,12 +61,7 @@ static enum cc_stat get_node     (SList *list, void *element, SNode **node, SNod
  *
  * @param[in] conf the SListConf struct that is being initialized.
  */
-/*@
-    spec slist_conf_init(conf) {
-        requires: (conf == #conf) * conf -> struct slist_conf_s { #a; #b; #c }
-        ensures: #conf -> struct slist_conf_s { funptr(malloc); funptr(calloc); funptr(free)  }
-    }
-*/
+// This function is self-evident and doesn't need specs.
 void slist_conf_init(SListConf *conf)
 {
     conf->mem_alloc  = malloc;
@@ -67,6 +77,12 @@ void slist_conf_init(SListConf *conf)
  * @return CC_OK if the creation was successful, or CC_ERR_ALLOC if the
  * memory allocation for the new SList structure failed.
  */
+/*@
+    spec slist_new(out) {
+        requires: (#out -> NULL) * (out == #out)
+        ensures: (#out -> ptr(#l, 0)) * slist(ptr(#l, 0), NULL, NULL, 0, nil) * (ret == int(0))
+    }
+*/
 enum cc_stat slist_new(SList **out)
 {
     SListConf conf;
