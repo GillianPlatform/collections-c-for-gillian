@@ -12,4 +12,4 @@ UTILS_SRC_DIR="for-gillian/test-utils"
 
 echo "Running tests using Gillian-C..."
 gillian-c bulk-wpst ${TESTS_DIR} -I ${LIB_HEADERS_DIR} -I ${UTILS_HEADERS_DIR} \
-    -S ${LIB_SRC_DIR} -S ${UTILS_SRC_DIR} --ignore-undef
+    -S ${LIB_SRC_DIR} -S ${UTILS_SRC_DIR} --ignore-undef --allocated-functions
