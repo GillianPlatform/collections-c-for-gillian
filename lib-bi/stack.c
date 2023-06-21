@@ -18,7 +18,6 @@
  * along with Collections-C.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "array.c"  // TODO: is this a bug?
 #include "stack.h"
 
 

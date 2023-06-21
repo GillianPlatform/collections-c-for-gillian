@@ -19,7 +19,6 @@
  */
 
 #include "queue.h"
-#include "deque.c"  // TODO: is this a bug?
 
 /**
  * Initializes the fields of the QueueConf struct to default values.

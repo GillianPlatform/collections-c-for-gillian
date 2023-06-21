@@ -19,7 +19,6 @@
  */
 
 #include "hashset.h"
-#include "hashtable.c"  // TODO: is this a bug?
 
 struct hashset_s {
     HashTable *table;

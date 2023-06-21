@@ -19,7 +19,6 @@
  */
 
 #include "treeset.h"
-#include "treetable.c"  // TODO: is this a bug?
 
 struct treeset_s {
     TreeTable *t;
