@@ -43,35 +43,40 @@ static enum cc_stat expand_capacity(Array *ar);
  */
 enum cc_stat array_new(Array **out)
 {
-    return array_new_conf(DEFAULT_CAPACITY, DEFAULT_EXPANSION_FACTOR, out);
+    ArrayConf c;
+    array_conf_init(&c);
+    return array_new_conf(&c, out);
 }
 
 /**
- * Creates a new empty Array based on the specified capacity and expansion
- * rate, and returns a status code.
+ * Creates a new empty Array based on the specified ArrayConf struct and
+ * returns a status code.
  *
  * Allocation may fail if the values of exp_factor and capacity in the ArrayConf
  * do not meet the following condition:
  * <code>exp_factor < (CC_MAX_ELEMENTS / capacity)</code>.
  *
- * @param[in] capacity initial capacity of the array
- * @param[in] ex rate at which the buffer expands (capacity * ex)
+ * @param[in] conf array configuration structure
  * @param[out] out pointer to where the newly created Array is to be stored
  *
  * @return CC_OK if the creation was successful, CC_ERR_INVALID_CAPACITY if
  * the above mentioned condition is not met, or CC_ERR_ALLOC if the memory
  * allocation for the new Array structure failed.
  */
-enum cc_stat array_new_conf(size_t capacity, float ex, Array **out)
+enum cc_stat array_new_conf(ArrayConf const * const conf, Array **out)
 {
+    float ex;
+
     /* The expansion factor must be greater than one for the
      * array to grow */
-    if (ex <= 1)
+    if (conf->exp_factor <= 1)
         ex = DEFAULT_EXPANSION_FACTOR;
+    else
+        ex = conf->exp_factor;
 
     /* Needed to avoid an integer overflow on the first resize and
      * to easily check for any future overflows. */
-    if (!capacity || ex >= CC_MAX_ELEMENTS / capacity)
+    if (!conf->capacity || ex >= CC_MAX_ELEMENTS / conf->capacity)
         return CC_ERR_INVALID_CAPACITY;
 
     Array *ar = calloc(1, sizeof(Array));
@@ -79,7 +84,7 @@ enum cc_stat array_new_conf(size_t capacity, float ex, Array **out)
     if (!ar)
         return CC_ERR_ALLOC;
 
-    void **buff = malloc(capacity * sizeof(void*));
+    void **buff = malloc(conf->capacity * sizeof(void*));
 
     if (!buff) {
         free(ar);
@@ -88,10 +93,21 @@ enum cc_stat array_new_conf(size_t capacity, float ex, Array **out)
 
     ar->buffer     = buff;
     ar->exp_factor = ex;
-    ar->capacity   = capacity;
+    ar->capacity   = conf->capacity;
 
     *out = ar;
     return CC_OK;
+}
+
+/**
+ * Initializes the fields of the ArrayConf struct to default values.
+ *
+ * @param[in, out] conf ArrayConf structure that is being initialized
+ */
+void array_conf_init(ArrayConf *conf)
+{
+    conf->exp_factor = DEFAULT_EXPANSION_FACTOR;
+    conf->capacity   = DEFAULT_CAPACITY;
 }
 
 /**
@@ -451,8 +467,8 @@ enum cc_stat array_subarray(Array *ar, size_t b, size_t e, Array **out)
         return CC_ERR_ALLOC;
     }
 
-    sub_ar->size       = e - b + 1;
-    sub_ar->capacity   = sub_ar->size;
+    sub_ar->size     = e - b + 1;
+    sub_ar->capacity = sub_ar->size;
 
     memcpy(sub_ar->buffer,
            &(ar->buffer[b]),

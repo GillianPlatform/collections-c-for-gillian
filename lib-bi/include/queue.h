@@ -28,7 +28,7 @@
  * A FIFO (first in first out) structure. Supports constant time
  * insertion, removal and lookup.
  */
-typedef struct queue_s Queue;
+typedef Deque Queue;
 
 /**
  * Queue configuration object.

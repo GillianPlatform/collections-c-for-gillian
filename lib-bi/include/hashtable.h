@@ -106,13 +106,6 @@ typedef struct hashtable_conf_s {
     /**
      * The key comparator function */
     int    (*key_compare) (const void *key1, const void *key2);
-
-    /**
-     * Memory allocators used to allocate the HashTable structure
-     * and for all internal memory allocations. */
-    void  *(*mem_alloc)   (size_t size);
-    void  *(*mem_calloc)  (size_t blocks, size_t size);
-    void   (*mem_free)    (void *block);
 } HashTableConf;
 
 

@@ -28,7 +28,7 @@
  * A LIFO (last in first out) structure. Supports constant time
  * insertion, removal and lookup.
  */
-typedef struct stack_s Stack;
+typedef Array Stack;
 
 /**
  * Stack configuration structure. Used to initialize a new Stack

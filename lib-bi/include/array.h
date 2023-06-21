@@ -32,6 +32,20 @@
 typedef struct array_s Array;
 
 /**
+ * Array configuration structure. Used to initialize a new Array
+ * with specific values.
+ */
+typedef struct array_conf_s {
+    /**
+     * The initial capacity of the array */
+    size_t capacity;
+
+    /**
+     * The rate at which the buffer expands (capacity * exp_factor). */
+    float  exp_factor;
+} ArrayConf;
+
+/**
  * Array iterator structure. Used to iterate over the elements of
  * the array in an ascending order. The iterator also supports
  * operations for safely adding and removing elements during
@@ -66,7 +80,8 @@ typedef struct array_zip_iter_s {
 
 
 enum cc_stat  array_new             (Array **out);
-enum cc_stat  array_new_conf        (size_t capacity, float ex, Array **out);
+enum cc_stat  array_new_conf        (ArrayConf const * const conf, Array **out);
+void          array_conf_init       (ArrayConf *conf);
 
 void          array_destroy         (Array *ar);
 void          array_destroy_cb      (Array *ar, void (*cb) (void*));

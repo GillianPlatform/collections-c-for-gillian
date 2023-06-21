@@ -51,13 +51,6 @@ typedef struct pqueue_conf_s {
      * be used to compare the elements of the PQueue
      */
     int (*cmp) (const void *a, const void *b);
-
-    /**
-     * Memory allocators used to allocate the Array structure and the
-     * underlying data buffers. */
-    void *(*mem_alloc)  (size_t size);
-    void *(*mem_calloc) (size_t blocks, size_t size);
-    void  (*mem_free)   (void *block);
 } PQueueConf;
 
 void          pqueue_conf_init       (PQueueConf *conf, int (*)(const void *, const void *));
