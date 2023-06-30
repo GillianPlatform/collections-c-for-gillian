@@ -113,7 +113,9 @@ size_t        array_size            (Array *ar);
 size_t        array_capacity        (Array *ar);
 
 enum cc_stat  array_index_of        (Array *ar, void *element, size_t *index);
-void          array_sort            (Array *ar, int (*cmp) (const void*, const void*));
+
+/* qsort() isn't defined in our stdlib yet */
+// void          array_sort            (Array *ar, int (*cmp) (const void*, const void*));
 
 void          array_map             (Array *ar, void (*fn) (void*));
 void          array_reduce          (Array *ar, void (*fn) (void*, void*, void*), void *result);

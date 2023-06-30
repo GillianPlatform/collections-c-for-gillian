@@ -765,6 +765,8 @@ size_t array_capacity(Array *ar)
 /**
  * Sorts the specified array.
  *
+ * Commented out as qsort isn't implemented in our stdlib
+ *
  * @note
  * Pointers passed to the comparator function will be pointers to the array
  * elements that are of type (void*) ie. void**. So an extra step of
@@ -793,10 +795,10 @@ size_t array_capacity(Array *ar)
  *                0 if the elements are equal and > 0 if the second goes
  *                before the first
  */
-void array_sort(Array *ar, int (*cmp) (const void*, const void*))
-{
-    qsort(ar->buffer, ar->size, sizeof(void*), cmp);
-}
+// void array_sort(Array *ar, int (*cmp) (const void*, const void*))
+// {
+//     qsort(ar->buffer, ar->size, sizeof(void*), cmp);
+// }
 
 /**
  * Expands the Array capacity. This might fail if the the new buffer
