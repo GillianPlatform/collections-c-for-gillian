@@ -39,13 +39,6 @@ typedef struct deque_conf_s {
      * if a non power of two is passed, it will be rounded to the
      * closest upper power of two */
     size_t capacity;
-
-    /**
-     * Memory allocators used to allocate the Vector structure and the
-     * underlying data buffers. */
-    void *(*mem_alloc)  (size_t size);
-    void *(*mem_calloc) (size_t blocks, size_t size);
-    void  (*mem_free)   (void *block);
 } DequeConf;
 
 /**

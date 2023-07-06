@@ -750,7 +750,9 @@ size_t array_size(Array *ar)
 }
 
 /**
- * Returns the capacity of the specified Array. The capacity of the Array is
+ * @brief 
+ * 
+ *
  * the maximum number of elements an Array can hold before it has to be resized.
  *
  * @param[in] ar array whose capacity is being returned
@@ -795,10 +797,10 @@ size_t array_capacity(Array *ar)
  *                0 if the elements are equal and > 0 if the second goes
  *                before the first
  */
-// void array_sort(Array *ar, int (*cmp) (const void*, const void*))
-// {
-//     qsort(ar->buffer, ar->size, sizeof(void*), cmp);
-// }
+void array_sort(Array *ar, int (*cmp) (const void*, const void*))
+{
+    qsort(ar->buffer, ar->size, sizeof(void*), cmp);
+}
 
 /**
  * Expands the Array capacity. This might fail if the the new buffer

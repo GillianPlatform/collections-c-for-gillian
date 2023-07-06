@@ -88,9 +88,6 @@ typedef struct tree_table_iter_s {
  */
 typedef struct treetable_conf_s {
     int    (*cmp)         (const void *k1, const void *k2);
-    void  *(*mem_alloc)   (size_t size);
-    void  *(*mem_calloc)  (size_t blocks, size_t size);
-    void   (*mem_free)    (void *block);
 } TreeTableConf;
 
 
