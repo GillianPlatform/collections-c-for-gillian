@@ -1,11 +1,11 @@
 CC=clang
 CC_OPT=-emit-llvm -c -g -O0 -Xclang -disable-O0-optnone 
 LINKER=llvm-link
-LIBRARY_FOLDER=lib
-BUG_LIBRARY_FOLDER=lib-with-bugs
-UTILS_FOLDER=for-klee/test-utils
-NORMAL_TESTS=for-klee/normal
-BUG_TESTS=for-klee/bugs
+LIBRARY_FOLDER=libs/fixed
+BUG_LIBRARY_FOLDER=libs/bugged
+UTILS_FOLDER=klee/utils
+NORMAL_TESTS=klee/normal
+BUG_TESTS=klee/bugs
 KLEE_INCLUDE=../klee_src/include
 
 BUILD_FOLDER=klee_build
@@ -35,7 +35,7 @@ bug: $(testbugsbc)
 
 normal: $(testsbc)
 
-$(BUILD_FOLDER)/for-klee/bugs/%.bc: for-klee/bugs/%.c $(libbugbc) $(BUILD_FOLDER)/utils/utils.bc 
+$(BUILD_FOLDER)/klee/bugs/%.bc: klee/bugs/%.c $(libbugbc) $(BUILD_FOLDER)/utils/utils.bc 
 	@mkdir -p $(dir $@)
 	@echo "Building $@"
 	@$(CC) $(CC_OPT) -I $(KLEE_INCLUDE) -I $(UTILS_FOLDER) -I $(BUG_LIBRARY_FOLDER)/include -o $@__i $< > /dev/null 2>&1
@@ -46,7 +46,7 @@ $(BUILD_FOLDER)/$(BUG_LIBRARY_FOLDER)/%.bc: $(BUG_LIBRARY_FOLDER)/%.c
 	@echo "Building $@"
 	@$(CC) $(CC_OPT) -I $(BUG_LIBRARY_FOLDER)/include -o $@ $^ > /dev/null 2>&1
 
-$(BUILD_FOLDER)/for-klee/normal/%.bc: for-klee/normal/%.c $(libbc) $(BUILD_FOLDER)/utils/utils.bc 
+$(BUILD_FOLDER)/klee/normal/%.bc: klee/normal/%.c $(libbc) $(BUILD_FOLDER)/utils/utils.bc 
 	@mkdir -p $(dir $@)
 	@echo "Building $@"
 	@$(CC) $(CC_OPT) -I $(KLEE_INCLUDE) -I $(UTILS_FOLDER) -I $(LIBRARY_FOLDER)/include -o $@__i $< > /dev/null 2>&1

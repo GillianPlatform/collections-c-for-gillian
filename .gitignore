@@ -1,6 +1,8 @@
 *.i
+*.o
 *.csm
 *.gil
 *.log
 *.deps
 klee_build
+infer-out

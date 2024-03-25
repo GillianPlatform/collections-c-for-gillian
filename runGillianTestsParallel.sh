@@ -6,11 +6,11 @@ set -e
 
 ENABLE_STATS=$1
 
-TESTS_DIR="for-gillian-with-imports"
-LIB_HEADERS_DIR="lib/include"
-LIB_SRC_DIR="lib"
-UTILS_HEADERS_DIR="test-utils"
-UTILS_SRC_DIR="test-utils"
+TESTS_DIR="gillian-with-imports"
+LIB_HEADERS_DIR="libs/fixed/include"
+LIB_SRC_DIR="libs/fixed"
+UTILS_HEADERS_DIR="utils"
+UTILS_SRC_DIR="utils"
 
 echo "Running tests using Gillian-C..."
 for filename in ${TESTS_DIR}/**/*.c; do

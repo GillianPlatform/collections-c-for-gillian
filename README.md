@@ -36,18 +36,18 @@ slightly in order to account for the current limitations of Gillian-C. The chang
 ## Running examples with KLEE
 
 Make sure that Klee, as well as `clang` and `llvm-link` is installed globally on your machine.
-You also need the `klee_src` folder that contains `include/klee/klee.h` to be next to the `collections-c-for-gillian` folder.
+You also need the `klee_src` folder that contains `include/klee/klee.h` to be next to the `collections-c-gillian` folder.
 
 Then, you can run a specific test suite (e.g. `array`) using
 
 ```
-$ ./testKleeFolder.sh for-klee/normal/array
+$ ./testKleeFolder.sh klee/normal/array
 ```
 
 or
 
 ```
-$ ./testKleeFolder.sh for-klee/bugs
+$ ./testKleeFolder.sh klee/bugs
 ```
 
 The Makefile is configured to correctly build each file you will be testing, based on the bugs or normal library.
