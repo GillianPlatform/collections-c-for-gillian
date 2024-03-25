@@ -6,7 +6,7 @@ set -e
 
 ENABLE_STATS=$1
 
-TESTS_DIR="gillian-with-imports"
+TESTS_DIR="gillian-compcert/normal"
 LIB_HEADERS_DIR="libs/fixed/include"
 LIB_SRC_DIR="libs/fixed"
 UTILS_HEADERS_DIR="utils"
