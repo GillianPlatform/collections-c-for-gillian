@@ -9,8 +9,8 @@ ENABLE_STATS=$1
 TESTS_DIR="gillian-compcert/normal"
 LIB_HEADERS_DIR="libs/fixed/include"
 LIB_SRC_DIR="libs/fixed"
-UTILS_HEADERS_DIR="utils"
-UTILS_SRC_DIR="utils"
+UTILS_HEADERS_DIR="gillian-compcert/utils"
+UTILS_SRC_DIR="gillian-compcert/utils"
 
 echo "Running tests using Gillian-C..."
 for filename in ${TESTS_DIR}/**/*.c; do
