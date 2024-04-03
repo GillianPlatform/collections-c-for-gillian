@@ -1,6 +1,5 @@
 #include "array.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static Array *v1;
 static Array *v2;
@@ -20,12 +19,12 @@ int main() {
 
     array_copy_deep(v1, copy, &v2);
 
-    __CPROVER_assert(array_size(v2) == array_size(v1), "")
+    __CPROVER_assert(array_size(v2) == array_size(v1), "");
 
     int *ca;
     array_get_at(v2, 0, (void *)&ca);
 
-    __CPROVER_assert(a == *ca, "")
+    __CPROVER_assert(a == *ca, "");
     array_destroy_cb(v2, free);
 
     array_destroy(v1);

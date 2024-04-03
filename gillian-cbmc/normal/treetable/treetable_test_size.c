@@ -1,6 +1,5 @@
 #include "treetable.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static TreeTable *table;
 
@@ -29,7 +28,7 @@ int main() {
     treetable_add(table, &pb, str_b);
     treetable_add(table, &pc, str_c);
 
-    __CPROVER_assert(treetable_size(table) == 3, "")
+    __CPROVER_assert(treetable_size(table) == 3, "");
 
     treetable_destroy(table);
 }

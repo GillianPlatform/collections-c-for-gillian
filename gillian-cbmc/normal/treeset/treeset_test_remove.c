@@ -1,6 +1,5 @@
 #include "treeset.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static TreeSet *set;
 
@@ -18,6 +17,6 @@ int main() {
 
     treeset_remove(set, &a, NULL);
 
-    __CPROVER_assert(2 == treeset_size(set), "")
-    __CPROVER_assert(0 == treeset_contains(set, &a), "")
+    __CPROVER_assert(2 == treeset_size(set), "");
+    __CPROVER_assert(0 == treeset_contains(set, &a), "");
 }

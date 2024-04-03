@@ -1,5 +1,4 @@
 #include "list.h"
-#include <gillian-c/gillian-c.h>
 
 static List *list1;
 static List *list2;
@@ -30,17 +29,17 @@ int main() {
 
     char str_s4[] = {s4, '\0'};
 
-    __CPROVER_assert(CC_OK == list_add(list1, str_s1), "")
-    __CPROVER_assert(CC_OK == list_add(list1, str_s2), "")
-    __CPROVER_assert(CC_OK == list_add(list1, str_s3), "")
-    __CPROVER_assert(CC_OK == list_add(list1, str_s4), "")
+    __CPROVER_assert(CC_OK == list_add(list1, str_s1), "");
+    __CPROVER_assert(CC_OK == list_add(list1, str_s2), "");
+    __CPROVER_assert(CC_OK == list_add(list1, str_s3), "");
+    __CPROVER_assert(CC_OK == list_add(list1, str_s4), "");
 
     void *e;
     list_get_first(list1, &e);
-    __CPROVER_assert(e != NULL, "")
+    __CPROVER_assert(e != NULL, "");
 
     list_get_last(list1, &e);
-    __CPROVER_assert(e != NULL, "")
+    __CPROVER_assert(e != NULL, "");
 
     teardown_test();
 }

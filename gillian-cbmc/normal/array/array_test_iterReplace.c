@@ -1,5 +1,4 @@
 #include "array.h"
-#include <gillian-c/gillian-c.h>
 
 static Array *v1;
 static Array *v2;
@@ -36,8 +35,8 @@ int main() {
     size_t index;
     array_index_of(v1, (void *)&replacement, &index);
 
-    __CPROVER_assert(2 == index, "")
-    __CPROVER_assert(0 == array_contains(v1, &c), "")
+    __CPROVER_assert(2 == index, "");
+    __CPROVER_assert(0 == array_contains(v1, &c), "");
 
     array_destroy(v1);
 

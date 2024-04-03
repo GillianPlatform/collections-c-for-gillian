@@ -1,5 +1,4 @@
 #include "stack.h"
-#include <gillian-c/gillian-c.h>
 
 static Stack *s;
 
@@ -18,15 +17,15 @@ int main() {
 
     stack_push(s, (void *)&a);
     stack_peek(s, (void *)&p);
-    __CPROVER_assert(&a == p, "")
+    __CPROVER_assert(&a == p, "");
 
     stack_push(s, (void *)&b);
     stack_peek(s, (void *)&p);
-    __CPROVER_assert(&b == p, "")
+    __CPROVER_assert(&b == p, "");
 
     stack_push(s, (void *)&c);
     stack_peek(s, (void *)&p);
-    __CPROVER_assert(&c == p, "")
+    __CPROVER_assert(&c == p, "");
 
     teardown_tests();
     return 0;

@@ -1,5 +1,4 @@
 #include "list.h"
-#include <gillian-c/gillian-c.h>
 
 static List *list1;
 static List *list2;
@@ -66,12 +65,12 @@ int main() {
     List *filter = NULL;
     list_filter(list1, pred2, &filter);
 
-    __CPROVER_assert(4 == list_size(list1), "")
-    __CPROVER_assert(1 == list_size(filter), "")
+    __CPROVER_assert(4 == list_size(list1), "");
+    __CPROVER_assert(1 == list_size(filter), "");
 
     int *i0;
-    __CPROVER_assert(list_get_at(filter, 0, (void **)&i0) == CC_OK, "")
-    __CPROVER_assert(*i0 == vd, "")
+    __CPROVER_assert(list_get_at(filter, 0, (void **)&i0) == CC_OK, "");
+    __CPROVER_assert(*i0 == vd, "");
 
     teardown_test();
 }

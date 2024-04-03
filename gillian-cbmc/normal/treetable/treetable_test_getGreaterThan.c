@@ -1,6 +1,5 @@
 #include "treetable.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static TreeTable *table;
 
@@ -38,7 +37,7 @@ int main() {
     int *g;
     treetable_get_greater_than(table, &pb, (void *)&g);
 
-    __CPROVER_assert(pc == *g, "")
+    __CPROVER_assert(pc == *g, "");
 
     treetable_destroy(table);
 }

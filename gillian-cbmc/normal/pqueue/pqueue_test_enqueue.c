@@ -1,5 +1,4 @@
 #include "pqueue.h"
-#include <gillian-c/gillian-c.h>
 
 static struct Pair { int a, b; } A, B, C;
 
@@ -44,11 +43,11 @@ int main() {
 
     pqueue_push(p1, (void *)&b);
     pqueue_top(p1, (void *)&ptr);
-    __CPROVER_assert(&b == ptr, "")
+    __CPROVER_assert(&b == ptr, "");
 
     pqueue_push(p1, (void *)&a);
     pqueue_top(p1, (void *)&ptr);
-    __CPROVER_assert(((a > b) && (&a == ptr)) || ((a <= b) && (&b == ptr)), "")
+    __CPROVER_assert(((a > b) && (&a == ptr)) || ((a <= b) && (&b == ptr)), "");
 
     struct Pair *ptr2;
     A.a = aa;
@@ -57,7 +56,7 @@ int main() {
 
     pqueue_push(p2, (void *)&A);
     pqueue_top(p2, (void *)&ptr2);
-    __CPROVER_assert(&A == ptr2, "")
+    __CPROVER_assert(&A == ptr2, "");
 
     pqueue_push(p2, (void *)&B);
     pqueue_top(p2, (void *)&ptr2);

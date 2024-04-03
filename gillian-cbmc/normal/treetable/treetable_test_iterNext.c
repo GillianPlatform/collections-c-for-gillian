@@ -1,6 +1,5 @@
 #include "treetable.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static TreeTable *table;
 
@@ -60,10 +59,10 @@ int main() {
             four++;
     }
 
-    __CPROVER_assert(1 == one, "")
-    __CPROVER_assert(1 == two, "")
-    __CPROVER_assert(1 == three, "")
-    __CPROVER_assert(1 == four, "")
+    __CPROVER_assert(1 == one, "");
+    __CPROVER_assert(1 == two, "");
+    __CPROVER_assert(1 == three, "");
+    __CPROVER_assert(1 == four, "");
 
     treetable_destroy(table);
 }

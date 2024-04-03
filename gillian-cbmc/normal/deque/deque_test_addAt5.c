@@ -1,5 +1,4 @@
 #include "deque.h"
-#include <gillian-c/gillian-c.h>
 
 static Deque *deque;
 static DequeConf conf;
@@ -32,16 +31,16 @@ int main() {
     const void *const *buff = deque_get_buffer(deque);
     const int elem = *((int *)buff[7]);
 
-    __CPROVER_assert(elem == a, "")
+    __CPROVER_assert(elem == a, "");
 
     const int elem1 = *((int *)buff[0]);
-    __CPROVER_assert(elem1 == b, "")
+    __CPROVER_assert(elem1 == b, "");
 
     const int elem2 = *((int *)buff[5]);
-    __CPROVER_assert(elem2 == f, "")
+    __CPROVER_assert(elem2 == f, "");
 
     const int elem3 = *((int *)buff[1]);
-    __CPROVER_assert(elem3 == g, "")
+    __CPROVER_assert(elem3 == g, "");
 
     teardown_tests();
     return 0;

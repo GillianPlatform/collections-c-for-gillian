@@ -1,6 +1,5 @@
 #include "slist.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static SList *list;
 static SList *list2;
@@ -73,7 +72,7 @@ int main() {
         }
         i++;
     }
-    __CPROVER_assert(3 == i, "")
+    __CPROVER_assert(3 == i, "");
 
     teardown_test();
     return 0;

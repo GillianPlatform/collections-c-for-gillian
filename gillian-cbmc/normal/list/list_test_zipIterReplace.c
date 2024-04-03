@@ -1,6 +1,5 @@
 #include "list.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static List *list1;
 static List *list2;
@@ -76,13 +75,13 @@ int main() {
     }
 
     size_t index;
-    __CPROVER_assert(CC_OK == list_index_of(list1, str_h, zero_if_ptr_eq, &index), "")
-    __CPROVER_assert(1 == index, "")
+    __CPROVER_assert(CC_OK == list_index_of(list1, str_h, zero_if_ptr_eq, &index), "");
+    __CPROVER_assert(1 == index, "");
 
-    __CPROVER_assert(CC_OK == list_index_of(list2, str_i, zero_if_ptr_eq, &index), "")
-    __CPROVER_assert(1 == index, "")
-    __CPROVER_assert(1 == list_contains(list1, str_h), "")
-    __CPROVER_assert(1 == list_contains(list2, str_i), "")
+    __CPROVER_assert(CC_OK == list_index_of(list2, str_i, zero_if_ptr_eq, &index), "");
+    __CPROVER_assert(1 == index, "");
+    __CPROVER_assert(1 == list_contains(list1, str_h), "");
+    __CPROVER_assert(1 == list_contains(list2, str_i), "");
 
     teardown_test();
 }

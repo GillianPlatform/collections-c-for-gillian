@@ -1,5 +1,4 @@
 #include "list.h"
-#include <gillian-c/gillian-c.h>
 
 static List *list1;
 static List *list2;
@@ -63,7 +62,7 @@ int main() {
     void *e;
     for (int i = 0; i < 4; i++) {
         list_get_at(list1, i, &e);
-        __CPROVER_assert(array[i] == e, "")
+        __CPROVER_assert(array[i] == e, "");
     }
 
     free(array);

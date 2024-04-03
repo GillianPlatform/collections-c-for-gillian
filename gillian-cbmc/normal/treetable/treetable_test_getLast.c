@@ -1,6 +1,5 @@
 #include "treetable.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static TreeTable *table;
 
@@ -38,7 +37,7 @@ int main() {
     int *last;
     treetable_get_last_key(table, (void *)&last);
 
-    __CPROVER_assert(pd == *last, "")
+    __CPROVER_assert(pd == *last, "");
 
     treetable_destroy(table);
 }

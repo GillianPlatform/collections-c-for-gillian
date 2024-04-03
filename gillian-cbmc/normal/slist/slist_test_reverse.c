@@ -1,5 +1,4 @@
 #include "slist.h"
-#include <gillian-c/gillian-c.h>
 
 static SList *list;
 static SList *list2;
@@ -40,7 +39,7 @@ int main() {
     void *el;
     int ind = 0;
     while (slist_iter_next(&i, &el) != CC_ITER_END) {
-        __CPROVER_assert(reverse_ar[ind] == *(int *)el, "")
+        __CPROVER_assert(reverse_ar[ind] == *(int *)el, "");
         ind++;
     }
 

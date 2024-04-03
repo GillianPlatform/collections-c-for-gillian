@@ -1,6 +1,5 @@
 #include "list.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static List *list1;
 static List *list2;
@@ -60,18 +59,18 @@ int main() {
 
     List *cp;
     list_copy_deep(list1, copy, &cp);
-    __CPROVER_assert(4 == list_size(cp), "")
+    __CPROVER_assert(4 == list_size(cp), "");
 
     int *e;
     list_get_at(cp, 2, (void *)&e);
 
     int *le;
     list_get_at(list1, 2, (void *)&le);
-    __CPROVER_assert(*e == *le, "")
+    __CPROVER_assert(*e == *le, "");
 
     list_get_at(cp, 2, (void *)&e);
     list_get_at(list1, 2, (void *)&le);
-    __CPROVER_assert(e != le, "")
+    __CPROVER_assert(e != le, "");
 
     list_destroy_cb(cp, free);
 

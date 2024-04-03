@@ -1,5 +1,4 @@
 #include "deque.h"
-#include <gillian-c/gillian-c.h>
 
 static Deque *deque;
 static DequeConf conf;
@@ -29,9 +28,9 @@ int main() {
     int *rc;
     deque_get_at(deque, 2, (void *)&rc);
 
-    __CPROVER_assert(c == *ra, "")
-    __CPROVER_assert(b == *rb, "")
-    __CPROVER_assert(a == *rc, "")
+    __CPROVER_assert(c == *ra, "");
+    __CPROVER_assert(b == *rb, "");
+    __CPROVER_assert(a == *rc, "");
 
     teardown_tests();
     return 0;

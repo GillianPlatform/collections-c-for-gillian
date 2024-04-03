@@ -1,6 +1,5 @@
 #include "array.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static Array *v1;
 static Array *v2;
@@ -66,7 +65,7 @@ int main() {
         }
         i++;
     }
-    __CPROVER_assert(3 == i, "")
+    __CPROVER_assert(3 == i, "");
     array_destroy(v2);
 
     array_destroy(v1);

@@ -1,5 +1,4 @@
 #include "list.h"
-#include <gillian-c/gillian-c.h>
 
 static List *list1;
 static List *list2;
@@ -14,18 +13,18 @@ void teardown_test() {
 int main() {
     setup_tests();
 
-    __CPROVER_assert(list1 != NULL, "")
-    __CPROVER_assert(list2 != NULL, "")
+    __CPROVER_assert(list1 != NULL, "");
+    __CPROVER_assert(list2 != NULL, "");
 
     void *e = NULL;
     list_get_first(list1, &e);
-    __CPROVER_assert(e == NULL, "")
+    __CPROVER_assert(e == NULL, "");
 
     list_get_last(list1, &e);
-    __CPROVER_assert(e == NULL, "")
+    __CPROVER_assert(e == NULL, "");
 
-    __CPROVER_assert(0 == list_size(list1), "")
-    __CPROVER_assert(list1 != list2, "")
+    __CPROVER_assert(0 == list_size(list1), "");
+    __CPROVER_assert(list1 != list2, "");
 
     teardown_test();
 }

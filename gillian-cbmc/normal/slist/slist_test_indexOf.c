@@ -1,5 +1,4 @@
 #include "slist.h"
-#include <gillian-c/gillian-c.h>
 
 static SList *list;
 static SList *list2;
@@ -30,10 +29,10 @@ int main() {
 
     size_t idx;
     slist_index_of(list, &a, &idx);
-    __CPROVER_assert(0 == idx, "")
+    __CPROVER_assert(0 == idx, "");
 
     slist_index_of(list, &c, &idx);
-    __CPROVER_assert(2 == idx, "")
+    __CPROVER_assert(2 == idx, "");
     ;
 
     teardown_test();

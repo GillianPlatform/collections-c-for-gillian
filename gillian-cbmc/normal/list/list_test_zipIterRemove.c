@@ -1,6 +1,5 @@
 #include "list.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static List *list1;
 static List *list2;
@@ -67,10 +66,10 @@ int main() {
     }
     CHECK_EQUAL_C_STRING(str_b, (char *)r1);
     CHECK_EQUAL_C_STRING(str_f, (char *)r2);
-    __CPROVER_assert(0 == list_contains(list1, str_b), "")
-    __CPROVER_assert(0 == list_contains(list2, str_f), "")
-    __CPROVER_assert(3 == list_size(list1), "")
-    __CPROVER_assert(2 == list_size(list2), "")
+    __CPROVER_assert(0 == list_contains(list1, str_b), "");
+    __CPROVER_assert(0 == list_contains(list2, str_f), "");
+    __CPROVER_assert(3 == list_size(list1), "");
+    __CPROVER_assert(2 == list_size(list2), "");
 
     teardown_test();
 }

@@ -1,5 +1,4 @@
 #include "deque.h"
-#include <gillian-c/gillian-c.h>
 
 static Deque *deque;
 static DequeConf conf;
@@ -34,14 +33,14 @@ int main() {
     deque_add_last(deque, &d);
     deque_add_last(deque, &e);
     deque_add_last(deque, &f);
-    __CPROVER_assert(6 == deque_size(deque), "")
+    __CPROVER_assert(6 == deque_size(deque), "");
 
     deque_filter_mut(deque, pred3);
-    __CPROVER_assert(1 == deque_size(deque), "")
+    __CPROVER_assert(1 == deque_size(deque), "");
 
     int *removed = NULL;
     deque_remove_first(deque, (void *)&removed);
-    __CPROVER_assert(f == *removed, "")
+    __CPROVER_assert(f == *removed, "");
     teardown_tests();
     return 0;
 }

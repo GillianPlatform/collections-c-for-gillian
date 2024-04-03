@@ -1,6 +1,5 @@
 #include "ring_buffer.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static int stat;
 static Rbuf *rbuf;
@@ -47,7 +46,7 @@ int main() {
     uint64_t out;
     for (int i = 0; i < 10; i++) {
         rbuf_dequeue(rbuf, &out);
-        __CPROVER_assert(items[i] == out, "")
+        __CPROVER_assert(items[i] == out, "");
         memset(&out, 0, sizeof(uint64_t));
     }
 

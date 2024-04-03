@@ -1,6 +1,5 @@
 #include "ring_buffer.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static int stat;
 static Rbuf *rbuf;
@@ -45,19 +44,19 @@ int main() {
     items[8] = i;
     items[9] = j;
 
-    __CPROVER_assert(items[0] == rbuf_peek(rbuf, 0), "")
-    __CPROVER_assert(items[1] == rbuf_peek(rbuf, 1), "")
+    __CPROVER_assert(items[0] == rbuf_peek(rbuf, 0), "");
+    __CPROVER_assert(items[1] == rbuf_peek(rbuf, 1), "");
 
     symb_uint(a_test);
     symb_uint(b_test);
     rbuf_enqueue(rbuf, a_test);
     rbuf_enqueue(rbuf, b_test);
 
-    __CPROVER_assert(rbuf_peek(rbuf, 0) == a_test, "")
-    __CPROVER_assert(rbuf_peek(rbuf, 1) == b_test, "")
+    __CPROVER_assert(rbuf_peek(rbuf, 0) == a_test, "");
+    __CPROVER_assert(rbuf_peek(rbuf, 1) == b_test, "");
     uint64_t out;
     rbuf_dequeue(rbuf, &out);
-    __CPROVER_assert(items[2] == out, "")
+    __CPROVER_assert(items[2] == out, "");
 
     teardown_test();
     return 0;

@@ -1,5 +1,4 @@
 #include "list.h"
-#include <gillian-c/gillian-c.h>
 
 static List *list1;
 static List *list2;
@@ -59,14 +58,14 @@ int main() {
 
     List *cp;
     list_copy_shallow(list1, &cp);
-    __CPROVER_assert(4 == list_size(cp), "")
+    __CPROVER_assert(4 == list_size(cp), "");
 
     void *f1;
     void *f2;
     for (int i = 0; i < list_size(list1); i++) {
         list_get_at(cp, i, &f1);
         list_get_at(list1, i, &f2);
-        __CPROVER_assert(f1 == f2, "")
+        __CPROVER_assert(f1 == f2, "");
     }
 
     teardown_test();

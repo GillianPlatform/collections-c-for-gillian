@@ -1,5 +1,4 @@
 #include "slist.h"
-#include <gillian-c/gillian-c.h>
 
 static SList *list;
 static SList *list2;
@@ -66,7 +65,7 @@ int main() {
     free(e);
 
     slist_get_at(list, 2, (void *)&e);
-    __CPROVER_assert(replacement == e, "")
+    __CPROVER_assert(replacement == e, "");
 
     teardown_test();
     return 0;

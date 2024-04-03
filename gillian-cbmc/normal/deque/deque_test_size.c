@@ -1,5 +1,4 @@
 #include "deque.h"
-#include <gillian-c/gillian-c.h>
 
 static Deque *deque;
 static DequeConf conf;
@@ -23,7 +22,7 @@ int main() {
     deque_add(deque, &d);
 
     size_t size = deque_size(deque);
-    __CPROVER_assert(4 == size, "")
+    __CPROVER_assert(4 == size, "");
 
     teardown_tests();
     return 0;

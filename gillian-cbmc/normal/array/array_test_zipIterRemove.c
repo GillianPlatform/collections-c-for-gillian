@@ -1,6 +1,5 @@
 #include "array.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static Array *v1;
 static Array *v2;
@@ -62,10 +61,10 @@ int main() {
             array_zip_iter_remove(&zip, &r1, &r2);
     }
     CHECK_EQUAL_C_STRING(str_b, (char *)r1);
-    __CPROVER_assert(0 == array_contains(v1, str_b), "")
-    __CPROVER_assert(0 == array_contains(v2, str_f), "")
-    __CPROVER_assert(3 == array_size(v1), "")
-    __CPROVER_assert(2 == array_size(v2), "")
+    __CPROVER_assert(0 == array_contains(v1, str_b), "");
+    __CPROVER_assert(0 == array_contains(v2, str_f), "");
+    __CPROVER_assert(3 == array_size(v1), "");
+    __CPROVER_assert(2 == array_size(v2), "");
 
     array_destroy(v2);
 

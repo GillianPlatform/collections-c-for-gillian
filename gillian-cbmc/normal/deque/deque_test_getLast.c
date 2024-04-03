@@ -1,5 +1,4 @@
 #include "deque.h"
-#include <gillian-c/gillian-c.h>
 
 static Deque *deque;
 static DequeConf conf;
@@ -23,7 +22,7 @@ int main() {
     int *last;
     deque_get_last(deque, (void *)&last);
 
-    __CPROVER_assert(b == *last, "")
+    __CPROVER_assert(b == *last, "");
 
     teardown_tests();
     return 0;

@@ -1,5 +1,4 @@
 #include "list.h"
-#include <gillian-c/gillian-c.h>
 
 static List *list1;
 static List *list2;
@@ -60,10 +59,10 @@ int main() {
     int *el;
     list_remove_last(list1, (void *)&el);
     free(el);
-    __CPROVER_assert(3 == list_size(list1), "")
+    __CPROVER_assert(3 == list_size(list1), "");
 
-    __CPROVER_assert(CC_OK == list_get_last(list1, (void *)&el), "")
-    __CPROVER_assert(vc == *el, "")
+    __CPROVER_assert(CC_OK == list_get_last(list1, (void *)&el), "");
+    __CPROVER_assert(vc == *el, "");
 
     teardown_test();
 }

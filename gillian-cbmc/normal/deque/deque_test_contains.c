@@ -1,6 +1,5 @@
 #include "deque.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static Deque *deque;
 static DequeConf conf;
@@ -29,9 +28,9 @@ int main() {
     deque_add(deque, &f);
     deque_add(deque, &a);
 
-    __CPROVER_assert(2 == deque_contains(deque, &a), "")
-    __CPROVER_assert(0 == deque_contains(deque, &g), "")
-    __CPROVER_assert(1 == deque_contains(deque, &e), "")
+    __CPROVER_assert(2 == deque_contains(deque, &a), "");
+    __CPROVER_assert(0 == deque_contains(deque, &g), "");
+    __CPROVER_assert(1 == deque_contains(deque, &e), "");
 
     teardown_tests();
     return 0;

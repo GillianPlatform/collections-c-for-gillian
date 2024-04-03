@@ -1,6 +1,5 @@
 #include "list.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static List *list1;
 static List *list2;
@@ -86,19 +85,19 @@ int main() {
     }
 
     size_t index;
-    __CPROVER_assert(CC_OK == list_index_of(list1, str_h, zero_if_ptr_eq, &index), "")
-    __CPROVER_assert(2 == index, "")
+    __CPROVER_assert(CC_OK == list_index_of(list1, str_h, zero_if_ptr_eq, &index), "");
+    __CPROVER_assert(2 == index, "");
 
-    __CPROVER_assert(CC_OK == list_index_of(list1, str_i, zero_if_ptr_eq, &index), "")
-    __CPROVER_assert(2 == index, "")
+    __CPROVER_assert(CC_OK == list_index_of(list1, str_i, zero_if_ptr_eq, &index), "");
+    __CPROVER_assert(2 == index, "");
 
-    __CPROVER_assert(CC_OK == list_index_of(list1, str_c, zero_if_ptr_eq, &index), "")
-    __CPROVER_assert(3 == index, "")
+    __CPROVER_assert(CC_OK == list_index_of(list1, str_c, zero_if_ptr_eq, &index), "");
+    __CPROVER_assert(3 == index, "");
 
-    __CPROVER_assert(1 == list_contains(list1, str_h), "")
-    __CPROVER_assert(1 == list_contains(list2, str_i), "")
-    __CPROVER_assert(5 == list_size(list1), "")
-    __CPROVER_assert(4 == list_size(list2), "")
+    __CPROVER_assert(1 == list_contains(list1, str_h), "");
+    __CPROVER_assert(1 == list_contains(list2, str_i), "");
+    __CPROVER_assert(5 == list_size(list1), "");
+    __CPROVER_assert(4 == list_size(list2), "");
 
     list_zip_iter_init(&zip, list1, list2);
     while (list_zip_iter_next(&zip, &e1, &e2) != CC_ITER_END) {

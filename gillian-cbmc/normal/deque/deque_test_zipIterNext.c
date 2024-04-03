@@ -1,6 +1,5 @@
 #include "deque.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static Deque *deque;
 static DequeConf conf;
@@ -43,16 +42,16 @@ int main() {
     void *e1, *e2;
     while (deque_zip_iter_next(&zip, &e1, &e2) != CC_ITER_END) {
         if (i == 0) {
-            __CPROVER_assert(strcmp(str_a, (char *)e1) == 0, "")
-            __CPROVER_assert(strcmp(str_e, (char *)e2) == 0, "")
+            __CPROVER_assert(strcmp(str_a, (char *)e1) == 0, "");
+            __CPROVER_assert(strcmp(str_e, (char *)e2) == 0, "");
         }
         if (i == 2) {
-            __CPROVER_assert(strcmp(str_c, (char *)e1) == 0, "")
-            __CPROVER_assert(strcmp(str_g, (char *)e2) == 0, "")
+            __CPROVER_assert(strcmp(str_c, (char *)e1) == 0, "");
+            __CPROVER_assert(strcmp(str_g, (char *)e2) == 0, "");
         }
         i++;
     }
-    __CPROVER_assert(3 == i, "")
+    __CPROVER_assert(3 == i, "");
     deque_destroy(d2);
 
     teardown_tests();

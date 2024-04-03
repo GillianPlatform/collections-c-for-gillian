@@ -1,5 +1,4 @@
 #include "deque.h"
-#include <gillian-c/gillian-c.h>
 
 static Deque *deque;
 static DequeConf conf;
@@ -24,7 +23,7 @@ int main() {
     deque_copy_shallow(deque, &copy);
 
     int size = deque_size(copy);
-    __CPROVER_assert(3 == size, "")
+    __CPROVER_assert(3 == size, "");
 
     int *ca;
     deque_get_at(copy, 0, (void *)&ca);
@@ -35,9 +34,9 @@ int main() {
     int *cc;
     deque_get_at(copy, 2, (void *)&cc);
 
-    __CPROVER_assert(a == *ca, "")
-    __CPROVER_assert(b == *cb, "")
-    __CPROVER_assert(c == *cc, "")
+    __CPROVER_assert(a == *ca, "");
+    __CPROVER_assert(b == *cb, "");
+    __CPROVER_assert(c == *cc, "");
     deque_destroy(copy);
 
     teardown_tests();

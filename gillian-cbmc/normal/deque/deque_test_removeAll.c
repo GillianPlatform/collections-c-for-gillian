@@ -1,5 +1,4 @@
 #include "deque.h"
-#include <gillian-c/gillian-c.h>
 
 static Deque *deque;
 static DequeConf conf;
@@ -27,10 +26,10 @@ int main() {
     void *last;
     int stat2 = deque_get_last(deque, &last);
 
-    __CPROVER_assert(CC_ERR_OUT_OF_RANGE == stat1, "")
-    __CPROVER_assert(CC_ERR_OUT_OF_RANGE == stat2, "")
+    __CPROVER_assert(CC_ERR_OUT_OF_RANGE == stat1, "");
+    __CPROVER_assert(CC_ERR_OUT_OF_RANGE == stat2, "");
 
-    __CPROVER_assert(0 == deque_size(deque), "")
+    __CPROVER_assert(0 == deque_size(deque), "");
 
     teardown_tests();
     return 0;

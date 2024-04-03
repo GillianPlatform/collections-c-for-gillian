@@ -1,6 +1,5 @@
 #include "treetable.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static TreeTable *table;
 
@@ -37,14 +36,14 @@ int main() {
         int const *key = entry.key;
 
         if (*key == pb) {
-            __CPROVER_assert(CC_OK == treetable_iter_remove(&iter, NULL), "")
+            __CPROVER_assert(CC_OK == treetable_iter_remove(&iter, NULL), "");
 
-            __CPROVER_assert(CC_ERR_KEY_NOT_FOUND == treetable_iter_remove(&iter, NULL), "")
+            __CPROVER_assert(CC_ERR_KEY_NOT_FOUND == treetable_iter_remove(&iter, NULL), "");
         }
     }
 
-    __CPROVER_assert(2 == treetable_size(table), "")
-    __CPROVER_assert(0 == treetable_contains_key(table, &pb), "")
+    __CPROVER_assert(2 == treetable_size(table), "");
+    __CPROVER_assert(0 == treetable_contains_key(table, &pb), "");
 
     treetable_destroy(table);
 }

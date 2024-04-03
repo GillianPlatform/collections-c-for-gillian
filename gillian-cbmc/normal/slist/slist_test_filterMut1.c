@@ -1,5 +1,4 @@
 #include "slist.h"
-#include <gillian-c/gillian-c.h>
 
 static SList *list;
 static SList *list2;
@@ -62,12 +61,12 @@ void teardown_test() {
 };
 
 void CHECK_EQ_LIST(SList *l1, SList *l2) {
-    __CPROVER_assert(slist_size(l1) == slist_size(l2), "")
+    __CPROVER_assert(slist_size(l1) == slist_size(l2), "");
     SListZipIter zip;
     slist_zip_iter_init(&zip, l1, l2);
     void *e1, *e2;
     while (slist_zip_iter_next(&zip, &e1, &e2) != CC_ITER_END) {
-        __CPROVER_assert(e1 == e2, "")
+        __CPROVER_assert(e1 == e2, "");
     }
 }
 
@@ -76,14 +75,14 @@ int main() {
 
     __CPROVER_assume(va != 0 && vb != 0 && vc != 0 && vd != 0);
 
-    __CPROVER_assert(4 == slist_size(list), "")
+    __CPROVER_assert(4 == slist_size(list), "");
     slist_filter_mut(list, pred1);
 
-    __CPROVER_assert(0 == slist_size(list), "")
+    __CPROVER_assert(0 == slist_size(list), "");
 
     void *e = NULL;
     slist_get_first(list, &e);
-    __CPROVER_assert(e == NULL, "")
+    __CPROVER_assert(e == NULL, "");
 
     teardown_test();
     return 0;

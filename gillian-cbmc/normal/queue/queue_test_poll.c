@@ -1,5 +1,4 @@
 #include "queue.h"
-#include <gillian-c/gillian-c.h>
 
 static Queue *q;
 static Queue *q2;
@@ -29,16 +28,16 @@ int main() {
     void *p;
 
     queue_poll(q, &p);
-    __CPROVER_assert(&a == p, "")
+    __CPROVER_assert(&a == p, "");
 
     queue_peek(q, &p);
-    __CPROVER_assert(&b == p, "")
+    __CPROVER_assert(&b == p, "");
 
     queue_poll(q, &p);
-    __CPROVER_assert(&b == p, "")
+    __CPROVER_assert(&b == p, "");
 
     queue_peek(q, &p);
-    __CPROVER_assert(&c == p, "")
+    __CPROVER_assert(&c == p, "");
 
     teardown_test();
     return 0;

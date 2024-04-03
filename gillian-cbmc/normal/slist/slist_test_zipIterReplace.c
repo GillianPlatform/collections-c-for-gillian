@@ -1,6 +1,5 @@
 #include "slist.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static SList *list;
 static SList *list2;
@@ -55,12 +54,12 @@ int main() {
 
     size_t index;
     slist_index_of(list, str_h, &index);
-    __CPROVER_assert(1 == index, "")
+    __CPROVER_assert(1 == index, "");
 
     slist_index_of(list, str_i, &index);
-    __CPROVER_assert(1 == index, "")
-    __CPROVER_assert(1 == slist_contains(list, str_h), "")
-    __CPROVER_assert(1 == slist_contains(list2, str_i), "")
+    __CPROVER_assert(1 == index, "");
+    __CPROVER_assert(1 == slist_contains(list, str_h), "");
+    __CPROVER_assert(1 == slist_contains(list2, str_i), "");
 
     teardown_test();
     return 0;

@@ -1,5 +1,4 @@
 #include "deque.h"
-#include <gillian-c/gillian-c.h>
 
 static Deque *deque;
 static DequeConf conf;
@@ -30,7 +29,7 @@ int main() {
 
     size_t capacity = deque_capacity(deque);
 
-    __CPROVER_assert(4 == capacity, "")
+    __CPROVER_assert(4 == capacity, "");
 
     /* Current layout:
        _________________
@@ -42,30 +41,30 @@ int main() {
     deque_add_first(deque, &e);
 
     capacity = deque_capacity(deque);
-    __CPROVER_assert(8 == capacity, "")
+    __CPROVER_assert(8 == capacity, "");
 
     /* The expansion should align the elements.*/
     const void *const *buff = deque_get_buffer(deque);
     const int elem = *((int *)buff[0]);
 
-    __CPROVER_assert(elem == c, "")
+    __CPROVER_assert(elem == c, "");
 
     const int elem1 = *((int *)buff[1]);
-    __CPROVER_assert(elem1 == a, "")
+    __CPROVER_assert(elem1 == a, "");
 
     const int elem2 = *((int *)buff[2]);
-    __CPROVER_assert(elem2 == b, "")
+    __CPROVER_assert(elem2 == b, "");
 
     const int elem3 = *((int *)buff[3]);
-    __CPROVER_assert(elem3 == d, "")
+    __CPROVER_assert(elem3 == d, "");
 
     const int elem4 = *((int *)buff[7]);
-    __CPROVER_assert(elem4 == e, "")
+    __CPROVER_assert(elem4 == e, "");
 
     deque_add_last(deque, &f);
 
     const int elem5 = *((int *)buff[4]);
-    __CPROVER_assert(elem5 == f, "")
+    __CPROVER_assert(elem5 == f, "");
 
     teardown_tests();
     return 0;

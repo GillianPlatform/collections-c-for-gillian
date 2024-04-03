@@ -1,5 +1,4 @@
 #include "list.h"
-#include <gillian-c/gillian-c.h>
 
 static List *list1;
 static List *list2;
@@ -29,9 +28,9 @@ int main() {
     list_add(list1, &c);
     list_add(list1, &d);
 
-    __CPROVER_assert(2 == list_contains(list1, &b), "")
-    __CPROVER_assert(1 == list_contains(list1, &d), "")
-    __CPROVER_assert(0 == list_contains(list1, &e), "")
+    __CPROVER_assert(2 == list_contains(list1, &b), "");
+    __CPROVER_assert(1 == list_contains(list1, &d), "");
+    __CPROVER_assert(0 == list_contains(list1, &e), "");
 
     teardown_test();
 }

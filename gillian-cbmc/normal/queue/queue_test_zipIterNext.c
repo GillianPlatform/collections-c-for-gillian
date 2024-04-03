@@ -1,6 +1,5 @@
 #include "queue.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static Queue *q;
 static Queue *q2;
@@ -44,16 +43,16 @@ int main() {
     void *e1, *e2;
     while (queue_zip_iter_next(&zip, &e1, &e2) != CC_ITER_END) {
         if (i == 0) {
-            __CPROVER_assert(strcmp(str_d, (char *)e1) == 0, "")
-            __CPROVER_assert(strcmp(str_g, (char *)e2) == 0, "")
+            __CPROVER_assert(strcmp(str_d, (char *)e1) == 0, "");
+            __CPROVER_assert(strcmp(str_g, (char *)e2) == 0, "");
         }
         if (i == 2) {
-            __CPROVER_assert(strcmp(str_b, (char *)e1) == 0, "")
-            __CPROVER_assert(strcmp(str_e, (char *)e2) == 0, "")
+            __CPROVER_assert(strcmp(str_b, (char *)e1) == 0, "");
+            __CPROVER_assert(strcmp(str_e, (char *)e2) == 0, "");
         }
         i++;
     }
-    __CPROVER_assert(3 == i, "")
+    __CPROVER_assert(3 == i, "");
 
     teardown_test();
     return 0;

@@ -1,6 +1,5 @@
 #include "slist.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static SList *list;
 static SList *list2;
@@ -55,18 +54,18 @@ int main() {
 
     size_t index;
     slist_index_of(list, str_h, &index);
-    __CPROVER_assert(2 == index, "")
+    __CPROVER_assert(2 == index, "");
 
     slist_index_of(list2, str_i, &index);
-    __CPROVER_assert(2 == index, "")
+    __CPROVER_assert(2 == index, "");
 
     slist_index_of(list, str_c, &index);
-    __CPROVER_assert(3 == index, "")
+    __CPROVER_assert(3 == index, "");
 
-    __CPROVER_assert(1 == slist_contains(list, str_h), "")
-    __CPROVER_assert(1 == slist_contains(list2, str_i), "")
-    __CPROVER_assert(5 == slist_size(list), "")
-    __CPROVER_assert(4 == slist_size(list2), "")
+    __CPROVER_assert(1 == slist_contains(list, str_h), "");
+    __CPROVER_assert(1 == slist_contains(list2, str_i), "");
+    __CPROVER_assert(5 == slist_size(list), "");
+    __CPROVER_assert(4 == slist_size(list2), "");
 
     slist_zip_iter_init(&zip, list, list2);
     while (slist_zip_iter_next(&zip, &e1, &e2) != CC_ITER_END) {
@@ -76,10 +75,10 @@ int main() {
 
     char *last;
     slist_get_last(list2, (void *)&last);
-    __CPROVER_assert(str_y == last, "")
+    __CPROVER_assert(str_y == last, "");
 
     slist_get_last(list, (void *)&last);
-    __CPROVER_assert(str_d == last, "")
+    __CPROVER_assert(str_d == last, "");
 
     teardown_test();
     return 0;

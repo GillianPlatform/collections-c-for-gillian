@@ -1,5 +1,4 @@
 #include "slist.h"
-#include <gillian-c/gillian-c.h>
 
 static SList *list;
 static SList *list2;
@@ -30,9 +29,9 @@ int main() {
     slist_add(list, &c);
     slist_add(list, &d);
 
-    __CPROVER_assert(2 == slist_contains(list, &b), "")
-    __CPROVER_assert(1 == slist_contains(list, &d), "")
-    __CPROVER_assert(0 == slist_contains(list, &e), "")
+    __CPROVER_assert(2 == slist_contains(list, &b), "");
+    __CPROVER_assert(1 == slist_contains(list, &d), "");
+    __CPROVER_assert(0 == slist_contains(list, &e), "");
 
     teardown_test();
     return 0;

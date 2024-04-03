@@ -1,6 +1,5 @@
 #include "treetable.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static TreeTable *table;
 
@@ -37,7 +36,7 @@ int main() {
 
     treetable_remove_first(table, NULL);
 
-    __CPROVER_assert(0 == treetable_contains_key(table, &pa), "")
+    __CPROVER_assert(0 == treetable_contains_key(table, &pa), "");
 
     treetable_destroy(table);
 }

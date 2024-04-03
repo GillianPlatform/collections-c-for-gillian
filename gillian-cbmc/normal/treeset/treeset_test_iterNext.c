@@ -1,6 +1,5 @@
 #include "treeset.h"
 #include "utils.h"
-#include <gillian-c/gillian-c.h>
 
 static TreeSet *set;
 
@@ -41,8 +40,8 @@ int main() {
             four++;
     }
 
-    __CPROVER_assert(1 == one, "")
-    __CPROVER_assert(1 == two, "")
-    __CPROVER_assert(1 == three, "")
-    __CPROVER_assert(1 == four, "")
+    __CPROVER_assert(1 == one, "");
+    __CPROVER_assert(1 == two, "");
+    __CPROVER_assert(1 == three, "");
+    __CPROVER_assert(1 == four, "");
 }

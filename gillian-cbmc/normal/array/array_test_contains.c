@@ -1,5 +1,4 @@
 #include "array.h"
-#include <gillian-c/gillian-c.h>
 
 static Array *v1;
 static Array *v2;
@@ -25,9 +24,9 @@ int main() {
     int ca = array_contains(v1, &a);
     int cd = array_contains(v1, &d);
 
-    __CPROVER_assert(2 == cc, "")
-    __CPROVER_assert(1 == ca, "")
-    __CPROVER_assert(0 == cd, "")
+    __CPROVER_assert(2 == cc, "");
+    __CPROVER_assert(1 == ca, "");
+    __CPROVER_assert(0 == cd, "");
 
     array_destroy(v1);
 

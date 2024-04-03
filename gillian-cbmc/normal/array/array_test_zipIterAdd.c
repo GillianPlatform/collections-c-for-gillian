@@ -1,5 +1,4 @@
 #include "array.h"
-#include <gillian-c/gillian-c.h>
 
 static Array *v1;
 static Array *v2;
@@ -74,16 +73,16 @@ int main() {
 
     size_t index;
 
-    __CPROVER_assert(CC_OK == array_index_of(v1, str_h, &index), "")
-    __CPROVER_assert(2 == index, "")
-    __CPROVER_assert(CC_OK == array_index_of(v2, str_i, &index), "")
-    __CPROVER_assert(2 == index, "")
-    __CPROVER_assert(CC_OK == array_index_of(v1, str_c, &index), "")
-    __CPROVER_assert(3 == index, "")
-    __CPROVER_assert(1 == array_contains(v1, str_h), "")
-    __CPROVER_assert(1 == array_contains(v2, str_i), "")
-    __CPROVER_assert(5 == array_size(v1), "")
-    __CPROVER_assert(4 == array_size(v2), "")
+    __CPROVER_assert(CC_OK == array_index_of(v1, str_h, &index), "");
+    __CPROVER_assert(2 == index, "");
+    __CPROVER_assert(CC_OK == array_index_of(v2, str_i, &index), "");
+    __CPROVER_assert(2 == index, "");
+    __CPROVER_assert(CC_OK == array_index_of(v1, str_c, &index), "");
+    __CPROVER_assert(3 == index, "");
+    __CPROVER_assert(1 == array_contains(v1, str_h), "");
+    __CPROVER_assert(1 == array_contains(v2, str_i), "");
+    __CPROVER_assert(5 == array_size(v1), "");
+    __CPROVER_assert(4 == array_size(v2), "");
 
     array_destroy(v2);
 

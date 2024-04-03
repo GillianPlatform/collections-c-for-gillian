@@ -1,5 +1,4 @@
 #include "array.h"
-#include <gillian-c/gillian-c.h>
 
 void reduce_add(void *e1, void *e2, void *result) {
     int el1 = e1 ? *((int *)e1) : 0;
@@ -24,17 +23,17 @@ int main() {
 
     array_add(v1, &a);
     array_reduce(v1, reduce_add, (void *)&result);
-    __CPROVER_assert(a == result, "")
+    __CPROVER_assert(a == result, "");
 
     array_add(v1, &b);
     array_reduce(v1, reduce_add, (void *)&result);
-    __CPROVER_assert(a + b == result, "")
+    __CPROVER_assert(a + b == result, "");
 
     array_add(v1, &c);
     array_add(v1, &d);
     array_add(v1, &e);
     array_reduce(v1, reduce_add, (void *)&result);
-    __CPROVER_assert(a + b + c + d + e == result, "")
+    __CPROVER_assert(a + b + c + d + e == result, "");
 
     array_destroy(v1);
 

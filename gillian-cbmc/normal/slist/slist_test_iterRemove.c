@@ -1,5 +1,4 @@
 #include "slist.h"
-#include <gillian-c/gillian-c.h>
 
 static SList *list;
 static SList *list2;
@@ -72,8 +71,8 @@ int main() {
             slist_iter_remove(&iter, NULL);
         }
     }
-    __CPROVER_assert(3 == slist_size(list), "")
-    __CPROVER_assert(0 == slist_contains(list, rm), "")
+    __CPROVER_assert(3 == slist_size(list), "");
+    __CPROVER_assert(0 == slist_contains(list, rm), "");
     free(rm);
 
     teardown_test();

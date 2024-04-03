@@ -1,5 +1,4 @@
 #include "array.h"
-#include <gillian-c/gillian-c.h>
 
 static Array *v1;
 static Array *v2;
@@ -24,8 +23,8 @@ int main() {
     int *repl;
     array_get_at(v1, 2, (void *)&repl);
 
-    __CPROVER_assert(*repl != c, "")
-    __CPROVER_assert(*repl == replacement, "")
+    __CPROVER_assert(*repl != c, "");
+    __CPROVER_assert(*repl == replacement, "");
 
     array_destroy(v1);
 

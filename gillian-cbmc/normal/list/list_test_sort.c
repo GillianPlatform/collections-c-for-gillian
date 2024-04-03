@@ -1,5 +1,4 @@
 #include "list.h"
-#include <gillian-c/gillian-c.h>
 
 static List *list1;
 static List *list2;
@@ -44,7 +43,7 @@ int main() {
     void *e;
     list_iter_next(&iter, &prev);
     while (list_iter_next(&iter, &e) != CC_ITER_END) {
-        __CPROVER_assert(*((int *)prev) <= *((int *)e), "")
+        __CPROVER_assert(*((int *)prev) <= *((int *)e), "");
         prev = e;
     }
 

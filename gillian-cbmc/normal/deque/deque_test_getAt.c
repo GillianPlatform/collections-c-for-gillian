@@ -1,5 +1,4 @@
 #include "deque.h"
-#include <gillian-c/gillian-c.h>
 
 static Deque *deque;
 static DequeConf conf;
@@ -25,8 +24,8 @@ int main() {
     void *n;
     int status = deque_get_at(deque, 42, &n);
 
-    __CPROVER_assert(b == *(int *)e, "")
-    __CPROVER_assert(CC_ERR_OUT_OF_RANGE == status, "")
+    __CPROVER_assert(b == *(int *)e, "");
+    __CPROVER_assert(CC_ERR_OUT_OF_RANGE == status, "");
 
     teardown_tests();
     return 0;

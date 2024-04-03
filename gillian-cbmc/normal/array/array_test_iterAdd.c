@@ -1,5 +1,4 @@
 #include "array.h"
-#include <gillian-c/gillian-c.h>
 
 static Array *v1;
 static Array *v2;
@@ -32,15 +31,15 @@ int main() {
             array_iter_add(&iter, &N);
     }
 
-    __CPROVER_assert(5 == array_size(v1), "")
+    __CPROVER_assert(5 == array_size(v1), "");
 
     void *n;
     array_get_at(v1, 3, &n);
-    __CPROVER_assert(N == *((int *)n), "")
-    __CPROVER_assert(1 == array_contains(v1, &N), "")
+    __CPROVER_assert(N == *((int *)n), "");
+    __CPROVER_assert(1 == array_contains(v1, &N), "");
 
     array_get_at(v1, 4, (void *)&n);
-    __CPROVER_assert(d == *((int *)n), "")
+    __CPROVER_assert(d == *((int *)n), "");
 
     array_destroy(v1);
 

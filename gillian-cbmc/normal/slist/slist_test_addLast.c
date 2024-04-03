@@ -1,5 +1,4 @@
 #include "slist.h"
-#include <gillian-c/gillian-c.h>
 
 static SList *list;
 static SList *list2;
@@ -30,17 +29,17 @@ int main() {
     slist_add(list, &c);
     slist_add(list, &d);
 
-    __CPROVER_assert(4 == slist_size(list), "")
+    __CPROVER_assert(4 == slist_size(list), "");
 
     int *last;
     slist_get_last(list, (void *)&last);
-    __CPROVER_assert(d == *last, "")
+    __CPROVER_assert(d == *last, "");
 
     slist_add_last(list, &append);
-    __CPROVER_assert(5 == slist_size(list), "")
+    __CPROVER_assert(5 == slist_size(list), "");
 
     slist_get_last(list, (void *)&last);
-    __CPROVER_assert(append == *last, "")
+    __CPROVER_assert(append == *last, "");
 
     teardown_test();
     return 0;
