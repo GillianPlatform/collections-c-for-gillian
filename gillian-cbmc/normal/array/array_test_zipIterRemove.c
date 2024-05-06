@@ -9,36 +9,17 @@ static int stat;
 int main() {
     stat = array_new(&v1);
 
-    char a = __nondet_int();
+    symb_str(a);
+    symb_str(b);
+    symb_str(c);
+    symb_str(d);
+    symb_str(e);
+    symb_str(f);
+    symb_str(g);
 
-    char str_a[] = {a, '\0'};
-
-    char b = __nondet_int();
-
-    char str_b[] = {b, '\0'};
-
-    char c = __nondet_int();
-
-    char str_c[] = {c, '\0'};
-
-    char d = __nondet_int();
-
-    char str_d[] = {d, '\0'};
-
-    char e = __nondet_int();
-
-    char str_e[] = {e, '\0'};
-
-    char f = __nondet_int();
-
-    char str_f[] = {f, '\0'};
-
-    char g = __nondet_int();
-
-    char str_g[] = {g, '\0'};
-
-    __CPROVER_assume((!(strcmp(str_a, str_b) == 0)) && (!(strcmp(str_c, str_b) == 0)) &&
-           (!(strcmp(str_d, str_b) == 0)));
+    __CPROVER_assume((!(strcmp(str_a, str_b) == 0)) &&
+                     (!(strcmp(str_c, str_b) == 0)) &&
+                     (!(strcmp(str_d, str_b) == 0)));
 
     array_add(v1, str_a);
     array_add(v1, str_b);

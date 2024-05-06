@@ -1,7 +1,7 @@
 #include "utils.h"
 
 void CHECK_EQUAL_C_STRING(char *s1, char *s2) {
-    __CPROVER_assert(strcmp(s1, s2) == 0), "string equal";
+    __CPROVER_assert(strcmp(s1, s2) == 0, "string equal");
 }
 
 void *copy(void *e1) {
