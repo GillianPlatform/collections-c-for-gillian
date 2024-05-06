@@ -1,0 +1,47 @@
+# Running with CBMC
+
+Running the following command from this folder runs all the symbolic tests using CBMC:
+
+```sh
+python3 cc.py
+```
+
+A time-out is set at 30s, given that Gillian-C spends at most 5 seconds on one test.
+
+The results are surprising, as CBMC seems to time-out on most of the tests, and I'm not sure why. When it does prove the test correctly, it usually takes between 3 and 20 seconds.
+
+It is also possible to run a single test:
+
+```sh
+./cbmc.sh array/array_test_add.c
+```
+
+Which will run the single test in the exact same conditions as the python3 script provided above. The only difference is that running a unique cbmc test also produces a counter-example if there is one, while the time measurement script does not, as to compute only testing time.
+
+## Fase positive
+
+There is a test that CBMC does not pass correctly:
+
+```
+./cbmc.sh array/array_test_zipIterRemove.c
+```
+
+After further investigation, it can be seen that the following values are suggested as counter-example:
+
+```c
+char str_a[] = "H";
+char str_b[] = {8, 0};
+char str_c[] = "\t";
+char str_d[] = "H";
+char str_e[] = "@";
+char str_f[] = "@";
+char str_g[] = "@";
+```
+
+We wrote a concrete test `concrete/array/array_test_zipIterRemove.c` using this values, which can be run from `scripts/concrete` using:
+
+```sh
+./run array/array_test_zipIterRemove.c
+```
+
+This will compile the program with `-fsanitize=address,undefined` and successfully run it, which confirms that this is a false positive from CBMC.
