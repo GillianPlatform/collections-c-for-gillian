@@ -20,7 +20,7 @@
 
 #include "pqueue.h"
 
-#define CC_PARENT(x) ((x > 0) ? (x - 1) / 2 : 0)
+#define CC_PARENT(x) (x - 1) / 2
 #define CC_LEFT(x) 2 * x + 1
 #define CC_RIGHT(x) 2 * x + 2
 

@@ -1,0 +1,57 @@
+❯ python3 cc.py
+Processing folder: ../../gillian-cbmc/normal/array
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/array/array_test_iterAdd.c
+../../gillian-cbmc/normal/array/array_test_iterRemove.c: VERIFICATION FAILURE!!
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/array/array_test_zipIterAdd.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/array/array_test_zipIterRemove.c
+Total execution time for folder ../../gillian-cbmc/normal/array: 153.88 seconds
+Processing folder: ../../gillian-cbmc/normal/deque
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/deque/deque_test_filter1.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/deque/deque_test_filter2.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/deque/deque_test_filter3.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/deque/deque_test_filterMut1.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/deque/deque_test_filterMut2.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/deque/deque_test_filterMut3.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/deque/deque_test_iterAdd.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/deque/deque_test_zipIterRemove.c
+Total execution time for folder ../../gillian-cbmc/normal/deque: 365.52 seconds
+Processing folder: ../../gillian-cbmc/normal/list
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/list/list_test_iterAdd.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/list/list_test_iterDescAdd.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/list/list_test_zipIterAdd.c
+Total execution time for folder ../../gillian-cbmc/normal/list: 230.24 seconds
+Processing folder: ../../gillian-cbmc/normal/pqueue
+../../gillian-cbmc/normal/pqueue/pqueue_test_enqueue.c: VERIFICATION FAILURE!!
+../../gillian-cbmc/normal/pqueue/pqueue_test_pop.c: VERIFICATION FAILURE!!
+Total execution time for folder ../../gillian-cbmc/normal/pqueue: 7.17 seconds
+Processing folder: ../../gillian-cbmc/normal/queue
+Total execution time for folder ../../gillian-cbmc/normal/queue: 13.85 seconds
+Processing folder: ../../gillian-cbmc/normal/ring_buffer
+Total execution time for folder ../../gillian-cbmc/normal/ring_buffer: 10.13 seconds
+Processing folder: ../../gillian-cbmc/normal/slist
+Total execution time for folder ../../gillian-cbmc/normal/slist: 133.41 seconds
+Processing folder: ../../gillian-cbmc/normal/stack
+Total execution time for folder ../../gillian-cbmc/normal/stack: 6.42 seconds
+Processing folder: ../../gillian-cbmc/normal/treeset
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/treeset/treeset_test_add.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/treeset/treeset_test_iterNext.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/treeset/treeset_test_iterRemove.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/treeset/treeset_test_remove.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/treeset/treeset_test_removeAll.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/treeset/treeset_test_size.c
+Total execution time for folder ../../gillian-cbmc/normal/treeset: 180.00 seconds
+Processing folder: ../../gillian-cbmc/normal/treetable
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/treetable/treetable_test_add.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/treetable/treetable_test_get.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/treetable/treetable_test_getFirst.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/treetable/treetable_test_getGreaterThan.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/treetable/treetable_test_getLast.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/treetable/treetable_test_getLessThan.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/treetable/treetable_test_iterNext.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/treetable/treetable_test_iterRemove.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/treetable/treetable_test_remove.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/treetable/treetable_test_removeAll.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/treetable/treetable_test_removeFirst.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/treetable/treetable_test_removeLast.c
+Timeout: Command exceeded 30 seconds on file: ../../gillian-cbmc/normal/treetable/treetable_test_size.c
+Total execution time for folder ../../gillian-cbmc/normal/treetable: 390.00 seconds

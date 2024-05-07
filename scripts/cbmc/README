@@ -26,6 +26,8 @@ There is a test that CBMC does not pass correctly:
 ./cbmc.sh array/array_test_zipIterRemove.c
 ```
 
+We store the result of running CBMC on this file in `array_test_zipIterRemove.txt`.
+
 After further investigation, it can be seen that the following values are suggested as counter-example:
 
 ```c
@@ -45,3 +47,12 @@ We wrote a concrete test `concrete/array/array_test_zipIterRemove.c` using this 
 ```
 
 This will compile the program with `-fsanitize=address,undefined` and successfully run it, which confirms that this is a false positive from CBMC.
+
+## Bug found by CBMC
+
+CBMC did find a bug in `pqueue_push` that Gillian-C didn't find due to a missing check in an operator.
+
+Getting this right is particularly tricky since both Gillian and Csharpminor are untyped.
+CBMC identified a bug due to an overflow in pqueue_test_enqueue, that Gillian-C didn't find, because it didn't know that the value should be unsigned, and therefore allowed the overflow.
+
+The result of running this test is stored un `pqueue_test_enqueue.txt`, and the issue has since been mitigated in Gillian-C.

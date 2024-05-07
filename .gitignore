@@ -7,3 +7,5 @@
 *.deps
 klee_build
 infer-out
+scripts/concrete/out.exe
+*.dSYM
